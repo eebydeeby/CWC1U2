@@ -7,12 +7,12 @@ public class SpawnManager : MonoBehaviour
 	public GameObject[] animalPrefabs;
 	private float spawnRangeX = 10;
 	private float spawnRangeZ = 10;
-	private float spawnPosX = 20;
 	private float spawnPosZ = 20;
 	private float startDelay = 2;
 	private float spawnInterval = 1.5f;
 	private int animalSide;
 	private Vector3 spawnPos;
+	private float spawnRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -26,22 +26,25 @@ public class SpawnManager : MonoBehaviour
 		
     }
 	
-	void SpawnRandomAnimal(){
-		animalSide = Random.Range(0,2);
+	void SpawnRandomAnimal()
+	{
+		animalSide = Random.Range(0,3);
 		switch (animalSide)
 		{
-			case 0:
-    			spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
-				break;
-			case 1:
-				spawnPos = new Vector3(spawnPosX, 0, Random.Range(-spawnRangeZ, spawnRangeZ));
-				break;
-			case 2:
-				spawnPos = new Vector3(spawnPosX, 0, Random.Range(spawnRangeZ, -spawnRangeZ));
-				break;
+		case 0:
+   			spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+			spawnRotation = 180f;
+		break;
+		case 1:
+			spawnPos = new Vector3(20, 0, Random.Range(-spawnRangeZ, spawnRangeZ));
+			spawnRotation = 270f;
+		break;
+		case 2:
+			spawnPos = new Vector3(-20, 0, Random.Range(-spawnRangeZ, spawnRangeZ));
+			spawnRotation = 90f;
+		break;
 		}
-		int animalIndex = Random.Range(0, animalPrefabs.Length);
-		Instantiate(animalPrefabs[animalIndex], spawnPos,
-			animalPrefabs[animalIndex].transform.rotation);
+	int animalIndex = Random.Range(0, animalPrefabs.Length);
+	Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(0, spawnRotation, 0));
 	}
 }
