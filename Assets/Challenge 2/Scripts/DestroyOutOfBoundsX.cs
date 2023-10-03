@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class DestroyOutOfBoundsX : MonoBehaviour
 {
-    private float leftLimit = -30;
-    private float bottomLimit = -5;
+    private float leftLimit = -30; // Bounds for dog objects before destroying them
+    private float bottomLimit = -5; // Sets the bounds ball objects
 
-    // Update is called once per frame
     void Update()
     {
         // Destroy dogs if x position less than left limit

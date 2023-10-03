@@ -1,19 +1,17 @@
+// Destroys objects that travek out of bounds
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DestroyOutOfBounds : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+	// Sets the square frame for objects - they get destroyed past this point
 	private float topBound = 20;
 	private float lowerBound = -20;
 	
-    // Update is called once per frame
+    // Checks if the object is out of frame
     void Update()
     {
 	if (transform.position.z > topBound || transform.position.x > topBound) {
