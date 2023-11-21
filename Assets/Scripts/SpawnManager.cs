@@ -31,12 +31,12 @@ public class SpawnManager : MonoBehaviour
 			spawnRotation = 180f;
 		break;
 		case 1:
-			spawnPos = new Vector3(20, 0, Random.Range(-spawnRangeZ, spawnRangeZ));
-			spawnRotation = 270f;
+			spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+			spawnRotation = 1890f;
 		break;
 		case 2:
-			spawnPos = new Vector3(-20, 0, Random.Range(-spawnRangeZ, spawnRangeZ));
-			spawnRotation = 90f;
+			spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+			spawnRotation = 180f;
 		break;
 		}
 	int animalIndex = Random.Range(0, animalPrefabs.Length);
